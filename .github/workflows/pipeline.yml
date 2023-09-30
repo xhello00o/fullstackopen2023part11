@@ -22,7 +22,12 @@ jobs:
       - name: Test
         run: npm run test
 
+      - name: build and start
+        run: 
+          npm run build
+          npm run start-prod
+
       - name: cypress e2e testing
         run: npm run test:e2e
       
-        
+
