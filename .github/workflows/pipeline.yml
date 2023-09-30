@@ -22,10 +22,11 @@ jobs:
       - name: Test
         run: npm run test
 
-      - name: build and start
+      - name: build 
         run: |
-          npm run build &&
-          npm run start-prod
+          npm run build
+      - name: start backend
+        run: npm run start-prod
 
       - name: cypress e2e testing
         run: npm run test:e2e
