@@ -3,7 +3,7 @@ name: Deployment pipeline
 on:
   push:
     branches:
-      - master
+      - render_deployment
 
 jobs:
   simple_deployment_pipeline:
