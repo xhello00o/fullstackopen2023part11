@@ -16,7 +16,7 @@ app.get('/version', (req, res) => {
 app.get('/health', (req, res) => {
 
   // eslint-disable-next-line no-unreachable
-  res.status(400).send('not ok')
+  res.status(200).send('ok')
 })
 
 app.listen(PORT, () => {
