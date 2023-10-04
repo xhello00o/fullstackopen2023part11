@@ -3,7 +3,7 @@ name: Testing stuff
 on:
   push:
     branches:
-      - render_deployment_pull
+      - render_deployment
 
 jobs:
   a_test_job:
