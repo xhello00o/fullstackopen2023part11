@@ -47,6 +47,6 @@ jobs:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           WITH_V: true
           DEFAULT_BRANCH: render_deployment
-          CUSTOM_TAG: test
+
 
 
