@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - render_deployment
+  pull_request:
+    branches: [render_deployment]
+    types: [opened, synchronize]
+  
 
 jobs:
   simple_deployment_pipeline:
