@@ -40,7 +40,7 @@ jobs:
           if [[ ${{ steps.generate_number.outputs.random_number }} == 0 ]]; then exit 0; else exit 1; fi
       - name: need context messages
         env:
-          NEED_CONTEXT: ${{needs.a_test_job}}
+          NEED_CONTEXT: ${{toJson(needs.a_test_job)}}
         run: echo "$NEED_CONTEXT"
       
     
