@@ -38,6 +38,7 @@ jobs:
       - name: Pass or fail
         run: |
           if [[ ${{ steps.generate_number.outputs.random_number }} == 0 ]]; then exit 0; else exit 1; fi
+        continue-on-error: true
       - name: need context messages
         env:
           NEED_CONTEXT: ${{toJson(needs.a_test_job)}}
