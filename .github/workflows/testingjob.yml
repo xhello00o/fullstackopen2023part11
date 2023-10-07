@@ -3,7 +3,7 @@ name: Testing stuff
 on:
   push:
     branches:
-      - render_deployment
+      - render_deployment_pull
 
 jobs:
   a_test_job:
@@ -22,3 +22,9 @@ jobs:
         env:
           COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
         run: echo "$COMMIT_MESSAGES"
+      - name: ref_name tag
+        env: 
+          BRANCH_NAME: ${{toJson(github.ref_name)}}
+        run: echo "$BRANCH_NAME"
+      
+    

@@ -3,7 +3,7 @@ name: Deployment pipeline
 on:
   push:
     branches:
-      - render_deployment_pull
+      - render_deployment
   pull_request:
     branches: [render_deployment]
     types: [opened, synchronize]
