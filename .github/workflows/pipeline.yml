@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - render_deployment
+      - render_deployment_pull
   pull_request:
     branches: [render_deployment]
     types: [opened, synchronize]
