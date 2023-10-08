@@ -3,7 +3,7 @@ name: Testing stuff
 on:
   push:
     branches:
-      - render_deployment
+      - render_deployment_pull
 
 jobs:
   a_test_job:
@@ -22,3 +22,26 @@ jobs:
         env:
           COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
         run: echo "$COMMIT_MESSAGES"
+      - name: ref_name tag
+        env: 
+          BRANCH_NAME: ${{toJson(github.ref_name)}}
+        run: echo "$BRANCH_NAME"
+  randomly-failing-job:
+    needs: [a_test_job]
+    runs-on: ubuntu-latest      
+    steps:
+      - id: checkout
+        uses: actions/checkout@v2
+      - name: Generate 0 or 1
+        id: generate_number
+        run:  echo "random_number=$(($RANDOM % 2))" >> $GITHUB_OUTPUT
+      - name: Pass or fail
+        run: |
+          if [[ ${{ steps.generate_number.outputs.random_number }} == 0 ]]; then exit 0; else exit 1; fi
+        continue-on-error: true
+      - name: need context messages
+        env:
+          NEED_CONTEXT: ${{toJson(needs.a_test_job)}}
+        run: echo "$NEED_CONTEXT"
+      
+    
